@@ -12,7 +12,7 @@ Gem::Specification.new do |spec|
 
   spec.summary       = %q{Simple File wrapper to keep file contents unique and sorted as lines are added.}
   spec.description   = <<-RDOC
-== Description ==
+== Description
 Proof of concept to maintain a file with sorted and unique values.
 This could be helpful for building building indexes.
 
