@@ -1,8 +1,9 @@
 # SortIndex
+Proof of concept to maintain a file with sorted and unique values.
+This could be helpful for building building indexes.
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/sort_index`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+`Range#bsearch` is used to determine if a line is already in the file and
+to determine where a line should be inserted. This means Ruby 2.0 is required.
 
 ## Installation
 
@@ -22,7 +23,20 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+Use `sorted_puts` on the File instance instead of `write`, `<<`, etc.
+
+```ruby
+SortIndex::File.open('animals', 'w+') do |f|
+  f.sorted_puts 'cat'
+  f.sorted_puts 'bat'
+  f.sorted_puts 'dog'
+  f.sorted_puts 'ant'
+  f.sorted_puts 'cat'
+end
+
+IO.read('animals')
+=> "ant\nbat\ncat\ndog\n"
+```
 
 ## Development
 
@@ -32,7 +46,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/sort_index.
+Bug reports and pull requests are welcome on GitHub at https://github.com/ddrscott/sort_index.
 
 
 ## License

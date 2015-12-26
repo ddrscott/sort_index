@@ -1,5 +1,5 @@
-require "sort_index/version"
+require 'sort_index/version'
+require 'sort_index/file'
 
 module SortIndex
-  # Your code goes here...
 end
